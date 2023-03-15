@@ -49,7 +49,7 @@ export class Running extends State {
         } else if (input.includes('ArrowUp')) {
             this.player.setState(states.JUMPING, 1);
         } else if (input.includes('Enter')) {
-            this.player.setState(states.ROLLING, 1);
+            this.player.setState(states.ROLLING, 1.5);
         }
     }
 }
@@ -69,7 +69,7 @@ export class Jumping extends State {
         if (this.player.vy > this.player.weight) {
             this.player.setState(states.FALLING, 1);
         } else if (input.includes('Enter')) {
-            this.player.setState(states.ROLLING, 1);
+            this.player.setState(states.ROLLING, 1.5);
         }
     }
 }
