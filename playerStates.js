@@ -42,7 +42,7 @@ export class Running extends State {
     enter(){
         this.game.player.frameX = 0;
         this.game.player.frameY = 3;
-        this.game.player.maxFrame = 6;
+        this.game.player.maxFrame = 8;
     }
     handleInput(input){
         this.game.particles.unshift(new Dust(this.game, this.game.player.x + this.game.player.width * .6, this.game.player.y + this.game.player.height));
@@ -112,7 +112,7 @@ export class Rolling extends State {
             this.game.player.setState(states.FALLING, 1);
         } else if (input.includes('Enter') && input.includes('ArrowUp') && this.game.player.onGround()) {
             this.game.player.vy -= 27;
-        } else if (input.includes('ArrowDown')) {
+        } else if (input.includes('ArrowDown') && !this.game.player.onGround()) {
             this.game.player.setState(states.DIVING, 0);
         }
     }
